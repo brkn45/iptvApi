@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class IpTvApi {
 	
-	@GetMapping("/allpassenger")
+	@GetMapping("/alldata")
 	public ResponseEntity<DataEntity> pushAllPassenger(){
 		Parser parser = new Parser("berkan.m3u");
 		parser.read();
