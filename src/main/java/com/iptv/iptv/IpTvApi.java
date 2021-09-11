@@ -14,8 +14,10 @@ public class IpTvApi {
 	public ResponseEntity<DataEntity> pushAllPassenger(){
 		Parser parser = new Parser("berkan.m3u");
 		parser.read();
+		
 		DataEntity data = new DataEntity(parser.getPictureLink(),parser.getGroupName(),parser.getChannelName(),parser.getLink());
 		return new ResponseEntity<>(data, HttpStatus.OK);
 		
 	}
+	
 }

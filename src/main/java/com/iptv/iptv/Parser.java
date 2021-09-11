@@ -51,7 +51,7 @@ public class Parser {
         int i=1;
 
         String[] tmp = new String[10];
-        for(i=0;i<line.size();i++) {
+        for(i=0;i<100;i++) {
 
             if(i%2 ==0 ) {
                 tmp = line.get(i).split("\"");
