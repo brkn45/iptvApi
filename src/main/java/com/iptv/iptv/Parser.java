@@ -51,24 +51,24 @@ public class Parser {
         int i=1;
 
         String[] tmp = new String[10];
-        for(i=0;i<100;i++) {
+        for(i=0;i<line.size();i++) {
 
             if(i%2 ==0 ) {
                 tmp = line.get(i).split("\"");
-                System.out.println("tvg-name:" +tmp[3]);
+                //System.out.println("tvg-name:" +tmp[3]);
                 channelName.add(tmp[3]);
-                System.out.println("tvg-logo:" +tmp[5]);
+                //System.out.println("tvg-logo:" +tmp[5]);
                 pictureLink.add(tmp[5]);
-                System.out.println("group-title:"+tmp[7]);
+                //System.out.println("group-title:"+tmp[7]);
                 groupName.add(tmp[7]);
             }
             else {
                 link.add(line.get(i));
-                System.out.println("link:" +link.get(0));
+                //System.out.println("link:" +link.get(0));
 
             }
         }
-        System.out.println("line Number:" + line.size());
+        //System.out.println("line Number:" + line.size());
     }
 
     public ArrayList<String> getChannelName() {
