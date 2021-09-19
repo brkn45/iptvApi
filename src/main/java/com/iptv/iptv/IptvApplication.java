@@ -19,12 +19,12 @@ public class IptvApplication {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(IptvApplication.class, args);
-		File file = new File("http://redson.xyz:6464/get.php?username=turgutluhlkegt&password=K56DwQmRLU&type=m3u_plus&output=mpegts");
+		/*File file = new File("http://redson.xyz:6464/get.php?username=turgutluhlkegt&password=K56DwQmRLU&type=m3u_plus&output=mpegts");
 		URL website = new URL("http://redson.xyz:6464/get.php?username=turgutluhlkegt&password=K56DwQmRLU&type=m3u_plus&output=mpegts");
+		
 		ReadableByteChannel rbc = Channels.newChannel(website.openStream());
 		FileOutputStream fos = new FileOutputStream("berkan.m3u");
-		fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-		//System.out.print("berkan");
+		fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);*/
 		
 	}
 

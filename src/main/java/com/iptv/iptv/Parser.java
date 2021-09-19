@@ -14,9 +14,9 @@ public class Parser {
     private ArrayList<String> link;
     private String firsLine;
   
-    File myObj;
+    File file;
     public Parser (String filename){
-        myObj = new File(filename);
+        file = new File(filename);
         this.pictureLink =new ArrayList<String>();
         this.groupName   =new ArrayList<String>();
         this.channelName =new ArrayList<String>();
@@ -29,7 +29,7 @@ public class Parser {
 
         try {
             System.out.println("Buraya geldi 1");
-            Scanner myReader = new Scanner(myObj);
+            Scanner myReader = new Scanner(file);
             myReader.hasNextLine();
             firsLine = myReader.nextLine();
             System.out.println("Buraya geldi 2");
@@ -42,6 +42,7 @@ public class Parser {
             //System.out.println("i: " +i);
             parser();
             myReader.close();
+           //file.delete();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
