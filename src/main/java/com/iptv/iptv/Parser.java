@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import java.util.Scanner;
 
+import org.yaml.snakeyaml.util.ArrayUtils;
+
 public class Parser {
 	private ArrayList<String> line;
     private ArrayList<String> pictureLink;
@@ -28,11 +30,11 @@ public class Parser {
 
 
         try {
-            System.out.println("Buraya geldi 1");
+           
             Scanner myReader = new Scanner(file);
             myReader.hasNextLine();
             firsLine = myReader.nextLine();
-            System.out.println("Buraya geldi 2");
+           
 
             while (myReader.hasNextLine()) {
                 line.add(myReader.nextLine());
@@ -51,17 +53,26 @@ public class Parser {
     public void parser() {
         int i=1;
 
-        String[] tmp = new String[10];
+        String[] tmp = new String[100];
         for(i=0;i<line.size();i++) {
 
             if(i%2 ==0 ) {
                 tmp = line.get(i).split("\"");
                 //System.out.println("tvg-name:" +tmp[3]);
-                channelName.add(tmp[3]);
+                if(tmp[3].length() >0) {
+                	channelName.add(tmp[3]);
+                }
+                
                 //System.out.println("tvg-logo:" +tmp[5]);
-                pictureLink.add(tmp[5]);
+                /*if(tmp[5].length() >0) {
+                	pictureLink.add(tmp[5]);
+                }*/
+                
+                
                 //System.out.println("group-title:"+tmp[7]);
-                groupName.add(tmp[7]);
+                if(tmp[7].length() >0) {
+                	groupName.add(tmp[7]);
+                }
             }
             else {
                 link.add(line.get(i));
@@ -70,6 +81,9 @@ public class Parser {
             }
         }
         //System.out.println("line Number:" + line.size());
+    }
+    public boolean deleteFile() {
+    	return file.delete();
     }
 
     public ArrayList<String> getChannelName() {

@@ -27,9 +27,11 @@ public class IpTvApi {
 	@GetMapping("/alldata")
 	public ResponseEntity<DataEntity> pushAllPassenger(){
 		Parser parser = new Parser("berkan.m3u");
+		
 		parser.read();
 		
 		DataEntity data = new DataEntity(parser.getPictureLink(),parser.getGroupName(),parser.getChannelName(),parser.getLink());
+		parser.deleteFile();
 		return new ResponseEntity<>(data, HttpStatus.OK);
 		
 	}
@@ -45,6 +47,7 @@ public class IpTvApi {
 		InputStream in = new URL(linkUrl).openStream();
 		Files.copy(in, Paths.get(filename), StandardCopyOption.REPLACE_EXISTING);
 		in.close();
+		
 		if(fileM3u.exists()) {
 			tmp = new LinkSucces(linkUrl,true);
 			return new ResponseEntity<>(tmp, HttpStatus.OK);
