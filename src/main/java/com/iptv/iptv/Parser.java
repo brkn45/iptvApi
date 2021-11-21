@@ -56,7 +56,7 @@ public class Parser {
         String[] tmp = new String[100];
         for(i=0;i<line.size();i++) {
         	
-            if(line.get(i).indexOf("#EXTINF:-1") >0) {
+            if(line.get(i).indexOf("#EXTINF:-1") >-1) {
                 tmp = line.get(i).split("\"");
                 //System.out.println("tvg-name:" +tmp[3]);
                 if(tmp[3].length() >0) {
