@@ -55,8 +55,8 @@ public class Parser {
 
         String[] tmp = new String[100];
         for(i=0;i<line.size();i++) {
-
-            if(i%2 ==0 ) {
+        	
+            if(line.get(i).indexOf("#EXTINF:-1") >0) {
                 tmp = line.get(i).split("\"");
                 //System.out.println("tvg-name:" +tmp[3]);
                 if(tmp[3].length() >0) {
@@ -73,12 +73,10 @@ public class Parser {
                 if(tmp[7].length() >0) {
                 	groupName.add(tmp[7]);
                 }
-            }
-            else {
+                i++;
                 link.add(line.get(i));
-                //System.out.println("link:" +link.get(0));
-
             }
+            
         }
         //System.out.println("line Number:" + line.size());
     }
