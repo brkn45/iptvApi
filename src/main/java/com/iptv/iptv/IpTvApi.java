@@ -56,8 +56,40 @@ public class IpTvApi {
 			tmp = new LinkSucces(linkUrl,true);
 			return new ResponseEntity<>(tmp, HttpStatus.OK);
 		}
-		
+	}	
+		@PostMapping("/link2")
+		public ResponseEntity<LinkSucces> linkTrust2(@RequestBody LinkSucces linkSucces) throws IOException {
+			String linkUrl = linkSucces.getLink();
+			LinkSucces tmp;
+			String filename = "deneme.m3u";
+			File fileM3u = new File("deneme.m3u");
+			
+			System.out.print("berkan");
+			InputStream in = new URL(linkUrl).openStream();
+			Files.copy(in, Paths.get(filename), StandardCopyOption.REPLACE_EXISTING);
+			in.close();
+			
+			if(fileM3u.exists()) {
+				tmp = new LinkSucces(linkUrl,true);
+				return new ResponseEntity<>(tmp, HttpStatus.OK);
+			}
+			else {
+				tmp = new LinkSucces(linkUrl,true);
+				return new ResponseEntity<>(tmp, HttpStatus.OK);
+			}
 		
 	}
+		
+		@GetMapping("/alldata2")
+		public ResponseEntity<DataEntity> getAlldata2(){
+			Parser2 parser = new Parser2("deneme.m3u");
+			parser.read();
+			
+			DataEntity data = new DataEntity(parser.getPictureLink(),parser.getGroupName(),parser.getChannelName(),parser.getLink());
+			parser.deleteFile();
+			return new ResponseEntity<>(data, HttpStatus.OK);
+			
+		}	
+	
 	
 }
