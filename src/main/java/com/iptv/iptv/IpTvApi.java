@@ -36,7 +36,7 @@ public class IpTvApi {
 		
 	}
 	
-	@PostMapping("/link")
+	@PostMapping("/link2")
 	public ResponseEntity<LinkSucces> linkTrust(@RequestBody LinkSucces linkSucces) throws IOException {
 		String linkUrl = linkSucces.getLink();
 		LinkSucces tmp;
@@ -57,7 +57,7 @@ public class IpTvApi {
 			return new ResponseEntity<>(tmp, HttpStatus.OK);
 		}
 	}	
-		@PostMapping("/link2")
+		@PostMapping("/link")
 		public ResponseEntity<LinkSucces> linkTrust2(@RequestBody LinkSucces linkSucces) throws IOException {
 			String linkUrl = linkSucces.getLink();
 			LinkSucces tmp;
